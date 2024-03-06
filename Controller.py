@@ -111,6 +111,14 @@ class Controller:
         else : 
             return {"User": "please try again"}
         
+    def create_report(self, username: str, report_type: str, content: str):
+        content = Reader(username, report_type, content)
+        if isinstance(content, Reader):
+            self.add_report(content)
+            return {"User": "Report created successfully."}
+        else:
+            return {"User": "Content not found."}
+        
         
     def show_my_page(self, username):
         writing_count = 0
@@ -163,14 +171,6 @@ class Controller:
                 "writings" : writing_list,
                 "pseudonyms" : pseudonym_list,
                 "comments" : comment_list}
-
-    def create_report(self, username: str, report_type: str, content: str):
-        content = Reader(username, report_type, content)
-        if isinstance(content, Reader):
-            self.add_report(content)
-            return {"User": "Report created successfully."}
-        else:
-            return {"User": "Content not found."}
 
     
     # def show_my_writing_list(self, writer_name=None):
