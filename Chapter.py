@@ -12,7 +12,6 @@ class Chapter:
         self.__publish_date_time = date_time
         self.__viewer_count = 0
         self.__comment_list = []
-        self.__report_list = []
         self.__cost = cost
 
     @property
@@ -41,9 +40,6 @@ class Chapter:
 
     def add_comment(self, comment):
         self.__comment_list.append(comment)
-
-    def add_report(self, report):
-        self.__report_list.append(report)
 
     def add_viewer_count(self):
         self.__viewer_count += 1
