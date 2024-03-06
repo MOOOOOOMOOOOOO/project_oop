@@ -20,10 +20,10 @@ class Controller:
     def add_report(self, report):
         self.__report_list.append(report)
 
-    def search_book_by_name(self, book_name):
+    def search_book_list_by_name(self, book_name):
         search_list=[]
         for writer in self.__writer_list:
-            for book in writer.writing_book_list():
+            for book in writer.writing_list:
                 if book_name.lower() in book.name.lower():
                     search_list.append(book.name)
                     
@@ -32,7 +32,7 @@ class Controller:
         else:
             return search_list
           
-    def search_user(self, username):
+    def search_user_list_by_name(self, username):
         search_list = []
         for reader in self.__reader_list:
             if username.lower() in reader.username.lower():
