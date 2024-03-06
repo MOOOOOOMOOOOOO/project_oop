@@ -3,7 +3,7 @@ import Chapter
 import ChapterTransaction
 import CoinTransaction
 from Reader import Reader, Writer
-from main import WriteARead
+
 
 class Controller:
     def __init__(self):
@@ -158,22 +158,21 @@ class Controller:
                 "writings" : writing_list,
                 "pseudonyms" : pseudonym_list,
                 "comments" : comment_list}
-    
-    def create_report(reporter_username: str, content_id: int, report_type: str, content: str = ""):
-        content = WriteARead.get_content_by_id(content_id)
+
+    def create_report(username: str, report_type: str, content: str = ""):
+        content = Controller.get_content_by_username(username)
 
         if content:
             report = {
                 "report_type": report_type,
-                "content_id": content_id,
                 "content": content,
-                "reporter_username": reporter_username,
+                "username": username,
             }
-            WriteARead.add_report(report)
+            Controller.add_report(report)
 
-            return {"User": "Report created successfully."}
+            return {"message": "Report created successfully."}
         else:
-            return {"User": "Content not found."}
+            return {"error": "Content not found."}
 
     
     # def show_my_writing_list(self, writer_name=None):
