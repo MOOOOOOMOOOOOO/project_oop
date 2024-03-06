@@ -119,11 +119,9 @@ def get_coin_transaction(username:str):
 #----------------------------------test----------------------------------
     
 
-
-    
 # from fastapi import HTTPException
 
-# @app.post("/upgrade_to_writer", tags=['user'])
+# @app.post("/upgrade_to_writer", tags=['upgrade'])
 # def upgrade_to_writer(username: str):
 #     user = WriteARead.get_user_by_username(username)
 #     if isinstance(user, Writer):
@@ -132,8 +130,4 @@ def get_coin_transaction(username:str):
 #         WriteARead.add_writer(user)
 #         return {"message": "User upgraded to writer successfully."}
 
-
-# @app.get("/My Writing", tags=['user'])
-# def ShowMyWriting(username: str):
-#     return {"My Writing": WriteARead.show_my_writing(username)}
 
