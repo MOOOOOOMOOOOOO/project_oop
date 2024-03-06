@@ -3,6 +3,7 @@ import Chapter
 import ChapterTransaction
 import CoinTransaction
 from Reader import Reader, Writer
+from main import WriteARead
 
 class Controller:
     def __init__(self):
@@ -158,16 +159,15 @@ class Controller:
                 "pseudonyms" : pseudonym_list,
                 "comments" : comment_list}
     
-    def create_report(reporter_username: str, content: str, content_id: int, report_type: str, additional_info: str = ""):
+    def create_report(reporter_username: str, content_id: int, report_type: str, content: str = ""):
         content = WriteARead.get_content_by_id(content_id)
 
         if content:
             report = {
                 "report_type": report_type,
-                "content": content,
                 "content_id": content_id,
+                "content": content,
                 "reporter_username": reporter_username,
-                "additional_info": additional_info
             }
             WriteARead.add_report(report)
 
