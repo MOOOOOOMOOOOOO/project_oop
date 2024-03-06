@@ -171,9 +171,8 @@ class Controller:
                 "writings" : writing_list,
                 "pseudonyms" : pseudonym_list,
                 "comments" : comment_list}
-
     
-    # def show_my_writing_list(self, writer_name=None):
+        # def show_my_writing_list(self, writer_name=None):
     #     writing_list = []
     #     for writer in self.__writer_list:
     #         if writer_name is None or writer_name.lower() == writer.username.lower():

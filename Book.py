@@ -1,4 +1,5 @@
 #Book.py
+import Controller
 import datetime
 import Chapter
 import Report
@@ -88,14 +89,14 @@ class Book:
         self.report_list.append(report)
         self.counting_date_time = datetime.now()
 
-    # def counting_report_from_type(self):
-    #     report_count=0
-    #     for report in self.__report_list:
-    #         for report_type in Controller.WriteARead.report_type_list:
-    #             if report_count == 10:
-    #                 break
-    #             if report.report_type == report_type:
-    #                 report_count+=1
+    def counting_report_from_type(self):
+        report_count=0
+        for report in self.__report_list:
+            for report_type in Controller.WriteARead.report_type_list:
+                if report_count == 10:
+                    break
+                if report.report_type == report_type:
+                    report_count+=1
 
     def delete_report(self, report):
       if report in self.report_list:
