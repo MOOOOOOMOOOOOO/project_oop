@@ -146,7 +146,7 @@ class Reader:
             date_time = coin_transaction.date_time
             show_list.append(f"{payment_type} +{golden_amount}_golden_coin +{silver_amount}_silver_coin -{price} baht at {date_time}")
         return show_list
-
+    
 
 class Writer(Reader):
     money_balance = 0

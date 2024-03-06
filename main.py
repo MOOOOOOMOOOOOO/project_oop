@@ -107,9 +107,9 @@ def ShowMyProfile(username:str):
 def ShowWritingList(username: str):
     user = WriteARead.get_user_by_username(username)
     if isinstance(user, Writer):
-        return {"User": user.show_writing_list()}
+        return {"message": user.show_writing_list()}
     else:
-        return {"User": "No books found."}
+        return {"message": "No books found."}
 
 @app.get("/get_coin_transacttion", tags=['Coin Transaction'])
 def get_coin_transaction(username:str):
@@ -117,17 +117,14 @@ def get_coin_transaction(username:str):
     return {"Coin Transaction" : user.show_coin_transaction()}
 
 #----------------------------------test----------------------------------
-    
 
-# from fastapi import HTTPException
-
-# @app.post("/upgrade_to_writer", tags=['upgrade'])
-# def upgrade_to_writer(username: str):
-#     user = WriteARead.get_user_by_username(username)
-#     if isinstance(user, Writer):
-#         return {"message": "User is already a writer."}
-#     else:
-#         WriteARead.add_writer(user)
-#         return {"message": "User upgraded to writer successfully."}
+@app.post("/upgrade_to_writer", tags=['upgrade'])
+def upgrade_to_writer(username: str):
+    user = WriteARead.get_user_by_username(username)
+    if isinstance(user, Writer):
+        return {"message": "User is already a writer."}
+    else:
+        WriteARead.add_writer(user)
+        return {"message": "User upgraded to writer successfully!!!."}
 
 
