@@ -23,7 +23,7 @@ class Controller:
     def search_book_by_name(self, book_name):
         search_list=[]
         for writer in self.__writer_list:
-            for book in writer.writing_book_list:
+            for book in writer.writing_book_list():
                 if book_name.lower() in book.name.lower():
                     search_list.append(book.name)
                     
