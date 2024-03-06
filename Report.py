@@ -5,6 +5,7 @@ class Report:
       self._report_type = report_type
       self._context = context
       self._date_time = date_time.now()
+      self.__report_list = []
 
   @property
   def report_to(self):

@@ -3,6 +3,7 @@ import Chapter
 import ChapterTransaction
 import CoinTransaction
 from Reader import Reader, Writer
+from Report import Report
 
 
 class Controller:
@@ -110,16 +111,17 @@ class Controller:
             return {"User": "sign up success"}
         else : 
             return {"User": "please try again"}
-        
+ 
     def create_report(self, username: str, report_type: str, content: str):
         content = Reader(username, report_type, content)
+        new_report = {"username": username, "report_type": report_type, "content": content}
+        self.__report_list.append(new_report)
         if isinstance(content, Reader):
             self.add_report(content)
             return {"User": "Report created successfully."}
         else:
             return {"User": "Content not found."}
-        
-        
+
     def show_my_page(self, username):
         writing_count = 0
         reads = 0
