@@ -1,15 +1,12 @@
-from Report import Report
-
+from datetime import datetime, timedelta
 
 class Chapter:
-    __chapter_id = 1
-
-    def __init__(self, chapter_number, name, context, date_time, cost):
-        self.__chapter_id += 1
+    def __init__(self, chapter_number, chapter_name, context, cost, book_name):
+        self.__chapter_id = str(book_name) + "/" + str(chapter_number)
         self.__chapter_number = chapter_number
-        self.__name = name
+        self.__name = chapter_name
         self.__context = context
-        self.__publish_date_time = date_time
+        self.__publish_date_time = datetime.now()
         self.__viewer_count = 0
         self.__comment_list = []
         self.__cost = cost
@@ -17,6 +14,10 @@ class Chapter:
     @property
     def name(self):
         return self.__name
+    
+    @property
+    def chapter_id(self):
+        return self.__chapter_id
     
     @property
     def chapter_number(self):
@@ -29,6 +30,10 @@ class Chapter:
     @property
     def publish_date_time(self):
         return self.__publish_date_time
+    
+    @property
+    def publish_date_time_str(self):
+        return self.__publish_date_time.strftime("%d/%m/%Y, %H:%M:%S")
     
     @property
     def cost(self):

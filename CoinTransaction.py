@@ -1,9 +1,9 @@
 class CoinTransaction:
-    def __init__(self, payment, price, coin_amount, date_time):
+    def __init__(self, payment, price, golden_coin_amount, silver_coin_amount, date_time):
         self.__payment = payment
         self.__price = price
-        self.__golden_amount = coin_amount[0]
-        self.__silver_amount = coin_amount[1]
+        self.__golden_amount = golden_coin_amount
+        self.__silver_amount = silver_coin_amount
         self.__date_time = date_time
     #=======================================
     @property

@@ -1,15 +1,15 @@
-#Book.py
 import Controller
 import datetime
-import Chapter
+from Chapter import Chapter
 import Report
 import Comment
+from datetime import datetime, timedelta
 
 class Book:
     viewer_count = 0
     add_to_shelf_count = 0
 
-    def __init__(self,name,writer,tag_list,status,age_restricted,prologue,date_time):
+    def __init__(self,name,writer,tag_list,status,age_restricted,prologue):
         self.__name = name
         self.__writer = writer
         self.__tag = tag_list
@@ -19,7 +19,7 @@ class Book:
         self.__chapter_list = []
         self.__comment_list = []
         self.__report_list = []
-        self.__date_time = date_time
+        self.__date_time = datetime.now()
     
     @property
     def name(self):
@@ -66,20 +66,27 @@ class Book:
     @date_time.setter
     def date_time(self,date_time):
         self.__date_time = date_time
+        
+    @property
+    def date_time_str(self):
+        return self.__date_time.strftime("%d/%m/%Y, %H:%M:%S")
 
-    def get_chapter_list(self):
+    @property
+    def chapter_list(self):
         return self.__chapter_list
     def add_chapter_list(self,chapter):
         if isinstance(chapter,Chapter):
             self.__chapter_list.append(chapter)
 
-    def get_report_list(self):
+    @property
+    def report_list(self):
         return self.__report_list
     def add_report_list(self,report):
         if isinstance(report,Report):
             self.__report_list.append(report)
 
-    def get_comment_list(self):
+    @property
+    def comment_list(self):
         return self.__comment_list
     def add_comment_list(self,comment):
         if isinstance(comment,Comment):
@@ -99,5 +106,5 @@ class Book:
                     report_count+=1
 
     def delete_report(self, report):
-      if report in self.report_list:
-          self.report_list.remove(report)
+        if report in self.report_list:
+            self.report_list.remove(report)

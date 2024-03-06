@@ -4,8 +4,7 @@ class Report:
       self._user = user
       self._report_type = report_type
       self._context = context
-      self._date_time = date_time.now()
-      self.__report_list = []
+      self._date_time = date_time
 
   @property
   def report_to(self):
