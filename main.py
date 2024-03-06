@@ -98,7 +98,7 @@ def SignUp(username: str, password: str, birth_date: str):
     return WriteARead.sign_up(username, password, birth_date)
 
 @app.post("/create_report", tags=['report'])
-def CreateReport(username: str, report_type: str, content: str = ""):
+def CreateReport(username: str, report_type: str, content: str):
     return WriteARead.create_report(username, report_type, content)
 
 @app.get("/My Page", tags=['user'])

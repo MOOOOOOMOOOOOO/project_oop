@@ -8,6 +8,7 @@ from Reader import Reader, Writer
 class Controller:
     def __init__(self):
         self.__reader_list = []
+        self.__report_list = []
         self.__writer_list = []
         self.__payment_list = []
         self.__promotion_list = []
@@ -15,6 +16,9 @@ class Controller:
 
     def add_reader(self, reader):
         self.__reader_list.append(reader)
+
+    def add_report(self, report):
+        self.__report_list.append(report)
 
     def search_book_by_name(self, book_name):
         search_list=[]
@@ -107,6 +111,7 @@ class Controller:
         else : 
             return {"User": "please try again"}
         
+        
     def show_my_page(self, username):
         writing_count = 0
         reads = 0
@@ -159,20 +164,13 @@ class Controller:
                 "pseudonyms" : pseudonym_list,
                 "comments" : comment_list}
 
-    def create_report(username: str, report_type: str, content: str = ""):
-        content = Controller.get_content_by_username(username)
-
-        if content:
-            report = {
-                "report_type": report_type,
-                "content": content,
-                "username": username,
-            }
-            Controller.add_report(report)
-
-            return {"message": "Report created successfully."}
+    def create_report(self, username: str, report_type: str, content: str):
+        content = Reader(username, report_type, content)
+        if isinstance(content, Reader):
+            self.add_report(content)
+            return {"User": "Report created successfully."}
         else:
-            return {"error": "Content not found."}
+            return {"User": "Content not found."}
 
     
     # def show_my_writing_list(self, writer_name=None):
