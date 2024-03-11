@@ -1,9 +1,11 @@
+/* General styles */
 html, body {
     margin: 0;
     padding: 0;
     font-family: "IBM Plex Sans Thai", sans-serif;
 }
 
+/* Header styles */
 .buy_coin_title {
     background-color: rgb(98, 153, 177);
     padding: 20px;
@@ -25,7 +27,7 @@ html, body {
     color: aliceblue;
     padding: 15px;
     display: inline-block;
-    text-decoration:none ;
+    text-decoration: none;
 }
 
 .brand {
@@ -34,19 +36,17 @@ html, body {
 }
 
 .button {
-    color:antiquewhite;
+    color: antiquewhite;
     background-color: brown;
     padding: 15px;
     text-align: center;
     text-decoration: none;
     margin-bottom: 10px;
-    /* display: block; */
     display: inline-block;
     width: 50px;
 }
 
 .payment_img {
-    /* color:rgb(73, 72, 72); */
     background-color: rgba(75, 73, 73, 0.493);
     padding: 0.7px;
     margin-left: 20px;
@@ -59,6 +59,7 @@ html, body {
     background-color: rgb(75, 81, 82);
 }
 
+/* Login styles */
 .login-container {
     width: 300px;
     margin: 0 auto;
@@ -68,34 +69,34 @@ html, body {
     background-color: white;
 }
 
-.box {
+.login-container .box {
     background-color: white;
     padding: 0px 0px;
 }
 
-.image {
+.login-container .image {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.form-group {
+.login-container .form-group {
     margin-bottom: 20px;
 }
 
-label {
+.login-container label {
     display: block;
     margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="password"] {
+.login-container input[type="text"],
+.login-container input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid white;
     border-radius: 5px;
 }
 
-button {
+.login-container button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
@@ -104,17 +105,11 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.login-container button:hover {
     background-color: #0056b3;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-}
-
+/* Add writing styles */
 .writing-container {
     width: 80%;
     margin: 50px auto;
@@ -124,18 +119,18 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+.writing-container .form-group {
     margin-bottom: 20px;
 }
 
-.form-group label {
+.writing-container .form-group label {
     display: block;
     margin-bottom: 5px;
 }
 
-.form-group input[type="text"],
-.form-group input[type="file"],
-.form-group textarea {
+.writing-container .form-group input[type="text"],
+.writing-container .form-group input[type="file"],
+.writing-container .form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -143,23 +138,23 @@ body {
     box-sizing: border-box;
 }
 
-.categories,
-.rating,
-.tags {
+.writing-container .categories,
+.writing-container .rating,
+.writing-container .tags {
     margin-top: 30px;
 }
 
-.rating-options label {
+.writing-container .rating-options label {
     display: block;
     margin-bottom: 10px;
 }
 
-.tags-input {
+.writing-container .tags-input {
     display: flex;
     align-items: center;
 }
 
-.tags-input input[type="text"] {
+.writing-container .tags-input input[type="text"] {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
@@ -168,7 +163,7 @@ body {
     margin-right: 10px;
 }
 
-.tags-input button {
+.writing-container .tags-input button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
@@ -177,9 +172,16 @@ body {
     cursor: pointer;
 }
 
-.tags-input button:hover {
+.writing-container .tags-input button:hover {
     background-color: #0056b3;
 }
+
+.upload-cover-group img {
+    max-width: 500px;
+    max-height: 500px;
+    cursor: pointer;
+}
+
 
 /* .login_title {
     color: black;

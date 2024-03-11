@@ -24,25 +24,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const addTagButton = document.getElementById('add-tag-button');
-    const tagInput = document.getElementById('tag-input');
-    const tagsContainer = document.querySelector('.tags-input');
+// เมื่อคลิกที่ปุ่ม "ส่งข้อมูล"
+document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
+    event.preventDefault(); // หยุดการทำงานของฟอร์มเพื่อป้องกันการรีเฟรชหน้าเว็บ
 
-    addTagButton.addEventListener('click', function() {
-        const tagValue = tagInput.value.trim();
-        if (tagValue !== '') {
-            const tagElement = document.createElement('span');
-            tagElement.textContent = tagValue;
-            tagElement.classList.add('tag');
-            tagsContainer.insertBefore(tagElement, tagInput);
-            tagInput.value = '';
-        }
-    });
+    // ดึงค่าที่กรอกในแบบฟอร์ม
+    var writingTitle = document.getElementById('writing-title').value;
+    var caption = document.getElementById('caption').value;
+    var penName = document.getElementById('pen-name').value;
+    var profileImage = document.getElementById('profile-image').value;
+    var category = document.getElementById('category').value;
 
-    tagsContainer.addEventListener('click', function(event) {
-        if (event.target.classList.contains('tag')) {
-            event.target.remove();
+    var rating;
+    var ratingInputs = document.querySelectorAll('input[name="rating"]');
+    for (var i = 0; i < ratingInputs.length; i++) {
+        if (ratingInputs[i].checked) {
+            rating = ratingInputs[i].value;
+            break;
         }
-    });
+    }
+    var tags = document.getElementById('tag-input').value;
 });
