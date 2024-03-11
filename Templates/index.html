@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WriteARead</title>
+        <link rel="stylesheet" type="text/css" href="/static/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/header_footer.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <script src="/scripts/search_bar.js"></script>
+        <script src="/scripts/banner_slide.js"></script>
+        <script src="/scripts/toggle_search.js"></script>
+        <script src="/scripts/search_page.js"></script>
+        <!-- <script src="/scripts/sending_page.js"></script> -->
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    </head>
+    <body>
+        <section id="searchBar">
+            <div id="dark_overlay" onclick="toggle_search_off()"></div>
+            <div  id="search_header">
+                <div class="search_item">
+                    <form id="searchForm">
+                        <input id="search_str" name="search_str" type="text" class="search_input" placeholder="ค้นหา" required>
+                        <a href="#" onclick="toggle_search_off()"> <img class="close_search" src="image/close_search.png" alt=Original Image"></a>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div class="header_flexbox_menu">
+            <div class="header_menu_item">
+                <a class="header_writing_type" href="#">นิยาย</a>
+                <a class="header_writing_type" href="#">แฟนฟิค</a>
+                <a class="header_writing_type" href="#">การ์ตูน</a>
+            </div>
+            <div class="header_menu_item">
+                <a href="index.html"><img src="image/WriteARead_white.png" class="WriteARead_image"></a>
+            </div>
+            <div class="header_menu_item">
+                <a href="#" onclick="toggle_search()"> <img class="search_icon" src="image/search_button_light.png" alt="Original Image"></a>
+                <a href="#"> <img class="pen_icon" src="image/writing_button_light.png" alt=Original Image"></a>
+                <a href="#"> <img class="user_icon" src="image/user_button_light.png" alt=Original Image"></a>
+            </div>
+        </div>
+        <br>
+
+        
+<div class="slideshow-container">
+
+    <div class="mySlides slide-right" style="display: block;">
+        <img src="image/temp_banner1.png" style="width:100%">
+    </div>
+    
+    <div class="mySlides slide-right">
+        <img src="image/temp_banner2.png" style="width:100%">
+    </div>
+    
+    <div class="mySlides slide-right">
+        <img src="image/temp_banner3.png" style="width:100%">
+    </div>
+    <div>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(0)"></span> 
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+    </div>
+</div>    
+    <br>
+        <div class="right">
+            <a href="payment.html"> <img class="top_up" src="image/buy_coin.png"></a>
+        </div>
+
+        <hr>
+        <div>
+            <a class="tag_title">Love Novel</a><br><br>
+            <a class="subtag_title">นิยายรัก</a>
+            <div class="flexbox">
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+            </div>
+            <div class="flexbox">
+                <div class="item">
+                    <a class="book_title">รักลับๆกับเจ้านายเย็นชา</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ปีที่แล้วเธอกับฉันเราพลัดหลงกัน</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">พี่ครับนมผมไหล ref:เพื่อนในกลุ่ม</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+            </div>
+
+            <br>
+            <a class="subtag_title">นิยายรักจีนโบราณ</a>
+            <div class="flexbox">
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="image/temp_cover.jpg"></a>
+                </div>
+            </div>
+            <div class="flexbox">
+                <div class="item">
+                    <a class="book_title">รักลับๆกับเจ้านายเย็นชา</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ปีที่แล้วเธอกับฉันเราพลัดหลงกัน</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">พี่ครับนมผมไหล ref:เพื่อนในกลุ่ม</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+            </div>
+        </div>
+
+        
+        <hr>
+        <footer class="footer">
+            <a class="footer_home_button" href="https://www.readawrite.com/">ReadAWrite</a><br>
+            <a class="footer_menu_text" href="payment.html">Payment</a><br>
+            <a class="footer_menu_text" href="MyPage.html">My Page</a><br>
+            <a class="footer_menu_text" href="https://www.canva.com/design/DAF--8n14UM/A16peiKoGKzyiTvsguoHaw/edit?utm_content=DAF--8n14UM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Canva</a><br>
+            <a class="footer_menu_text" href="search_page.html">Search Page</a>
+        </footer>
+
+        <br>
+    
+    </body>
+</html>

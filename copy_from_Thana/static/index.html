@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FastAPI Frontend</title>
+        <script>
+            $(document).ready(function()
+            {
+                // fetch data from the FastAPI backend
+                function fetchData()
+                {
+                    $.ajax({
+                        url: '/todo', //API endpoint to fetch to-do list
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(data){
+                            console.log(data.Data);
+                            // Clear existing list items
+                            $('#todo-list').empty();
+                            // Once data is fetched successfully, iterate through it and append to the list
+                            if (data.Data.length > 0) {
+                                $.each(data.Data, function(index, todo){
+                                    console.log(todo);  // Add this line to inspect each todo object
+                                    $('#todo-list').append('<li>' + todo.id + ':' + todo.activity + '</li>');
+                                });
+                            }else {
+                                console.log('No data received.');
+                            }
+                        },
+                        error: function(xhr, status, error){
+                            // Handle error if any
+                            console.error('Error fetching to-do list:', status, error);
+                        }
+                    });
+                }
+            
+                // Section 1: Create Task
+                $('#createButton').click(function(){
+                    console.log('Create button clicked');
+                    var newId = $('#newId').val();
+                    var newActivity = $('#newActivity').val();
+                    if (newId && newActivity){
+                        $.ajax({
+                            url: '/todo', // API endpoint to create a new activity
+                            method: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify({id: newId, activity: newActivity}),
+                            success: function(){
+                                fetchData();
+                                    },
+                            error: function(xhr, status, error){
+                                console.error('Error creating activity:', status, error);
+                            }
+                        });
+                    }
+                });
+            
+                // Section 2: Edit Task
+                $('#editButton').click(function(){
+                    var editId = $('#editId').val();
+                    var editActivity = $('#editActivity').val();
+                    if (editId && editActivity){
+                        $.ajax({
+                            url: '/todo/' + editId, //API endpoint to edit an activity
+                            method: 'PUT',
+                            contentType: 'application/json',
+                            data: JSON.stringify({activity: editActivity}),
+                            success: function(){
+                                fetchData();
+                            },
+                            error: function(xhr, status, error){
+                                console.error('Error editing activity:', status, error);
+                            }
+                        });
+                    }
+                });
+            
+                // Section 3: Delete Activity
+                $('#deleteButton').click(function(){
+                    var deleteId = $('#deleteId').val();
+                    if (deleteId){
+                        $.ajax({
+                            url: '/todo/' + deleteId, // API endpoint to delete an activity
+                            method: 'DELETE',
+                            success: function(){
+                                fetchData();
+                            },
+                            error: function(xhr,status, error){
+                                console.error('Error deleting activity:', status, error);
+                            }
+                        });
+                    }
+                });
+                
+                // Fetch Data Button Click Event
+                $('#fetchDataButton').click(function(){
+                    fetchData();
+                });
+            });
+            </script>
+    </head>
+    <body>
+        <h1>To-Do List</h1>
+
+        <!-- Section 1: Create Activity -->
+        <h2>Create Activity</h2>
+        <input type="number" id="newId" placeholder="ID">
+        <input type="text" id="newActivity" placeholder="Activity"> <button id="createButton">Create Activity</button>
+
+        <!-- Section 2: Edit Activity -->
+        <h2>Edit Activity</h2>
+        <input type="number" id="editId" placeholder="Activity ID">
+        <input type="text" id="editActivity" placeholder="New Activity"> <button id="editButton">Edit Activity</button>
+
+        <!-- Section 3: Delete Activity -->
+        <h2>Delete Activity</h2>
+        <input type="number" id="deleteId" placeholder="Activity ID"> <button id="deleteButton">Delete Activity</button>
+        <!-- Fetch Data Button -->
+        <br><br>
+        <button id="fetchDataButton">Fetch Data</button>
+        <!-- To-Do List -->
+        <ul id="todo-list">
+        <!-- To-Do items will be inserted here dynamically --> </ul>
+    </body>
+</html>

@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-import Book
+from Book import Book
 
 class Promotion():
     def __init__(self, start_date_time, discount):
@@ -11,9 +11,19 @@ class Promotion():
     @property
     def start_date_time(self):
         return self.__start_date_time
+    
+    @property
+    def start_date_time_str(self):
+        return self.__start_date_time.strftime("%x %")
+    
     @property
     def end_date_time(self):
         return self.__end_date_time
+    
+    @property
+    def end_date_time_str(self):
+        return self.__end_date_time.strftime("%x %")
+    
     @property
     def discount(self):
         return self.__discount
@@ -33,8 +43,8 @@ class CoinPromotion(Promotion):
         return self.__code
 
 class BookPromotion(Promotion):
-    def __init__(self, start_date_time,discount, promotion_book_list):
-        super().__init__(start_date_time,discount)
+    def __init__(self, start_date_time, discount, promotion_book_list):
+        super().__init__(start_date_time, discount)
         self.__promotion_book_list = promotion_book_list
 
     @property

@@ -1,0 +1,107 @@
+html{
+    margin: 0;
+    padding: 0;
+    font-family: "IBM Plex Sans Thai", sans-serif;
+}
+
+.page_name{
+    color: White;
+    margin: 0px;
+    text-align: center;
+    padding: 3%;
+    background-color: rgb(59, 163, 182);
+}
+
+.menu_button{
+    color: White;
+}
+
+.flexbox{
+    display: flex;
+    /* box-sizing: border-box; */
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.item{
+    display: block;
+    box-sizing: border-box;
+    width: 20%;
+    color: White;
+    text-align: center;
+    padding: 3px;
+    background-color: rgb(98, 153, 177);
+    margin-bottom: 1px;
+    margin-right: 1px;
+}
+
+.search_item{
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.search_button{
+    box-sizing: border-box;
+    margin-top: 7px;
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.search_input {
+    background-color: rgb(244, 244, 244);
+    width: 500px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid rgb(244, 244, 244);
+    border-radius: 100px;
+    box-sizing: border-box;
+    outline: none;
+
+}
+
+.WriteARead_image{
+    background-color: rgb(59, 163, 182);
+    Width: 200px;
+}
+
+.top_banner{
+    background-color: rgb(59, 163, 182);
+    padding: 50px;
+    text-align: center;
+}
+
+.search_banner{
+    background-color: rgb(59, 163, 182);
+    padding: 1px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.writing_type{
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    text-decoration:none ;
+}
+
+#searchForm{
+    /* display: inline-block; */
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+.menu_banner{
+    background-color: rgb(59, 163, 182);
+}
+
+.move_right{
+    margin-left: 20px
+}

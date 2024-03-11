@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BookInfo</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="/static/bookstyle.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap"
+            rel="stylesheet">
+
+        <meta charset="UTF-8">
+        
+    </head>
+
+    <body>
+        <script>
+            let book_name
+            function displayBookInfo(bookName) {
+                fetch(`/book/${bookName}`)
+                .then(response => response.json())
+                .then(data => {
+                    // document.querySelector('book_name').innerText = data.name;
+                    book_name = data.name
+                    // pseudonym = data.pseudonym
+                    // writer_name = data.writer_name
+                    // genre = data.genre
+                    // status = data.status
+                    // age_restricted = data.age_restricted
+                    // prologue = data.prologue
+                    // name, pseudonym, writer, genre, status, age_restricted, prologue
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
+        <!--หัวกระดาษ-->
+        <div class="flexbox_menu">
+            <div class="menu_banner_item">
+                <a href="Templates/index.html"><img src="Templates/image/WriteARead_white.png" class="WriteARead_image"></a>
+            </div>
+            <div class="menu_banner_item">
+                <a href="#"> <img class="ring_icon" src="Templates/image/ring_button_light.png" alt="Original Image"></a>
+                <a href="#"> <img class="pen_icon" src="Templates/image/writing_button_light.png" alt="Original Image"></a>
+                <a href="#"> <img class="user_icon" src="Templates/image/user_button_light.png" alt="Original Image"></a>
+            </div>
+        </div>
+
+        <!--book info-->
+        <div>
+            <div class="book_flexbox">
+                <div class="book_item">
+                    <img class="book_cover" src="Templates/image/temp_cover2.png" alt="book_cover" />
+                </div>
+                <!-- <div class ="item"> -->
+                <div class="info_flexbox">
+                    <div class="info_item">
+                        <a class="genre">${genre}</a>
+                    </div>
+                    <div class="info_item">
+                        <a class="book_title">${book_name}</a>
+                    </div>
+                    <div class="info_item">
+                        <a class="genre">${writer_name}</a>
+                    </div>
+                    <div class="info_item">
+                        <a class="book_title">${prologue}</a>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+            <div class="flexbox-3">
+                <div class="item-3">
+                    <a class="title">prologue</a>
+                    <br>
+                    <a class="text">once upon a time</a>
+                </div>
+            </div>
+            <div class="flexbox-3">
+                <div class="item-3">
+                    <a class="title">writer infomation</a>
+                    <br>
+                    <a class="text"><span>pseudonim :</span> <span>Mozaza007</span></a>
+                    <br>
+                    <a class="text"><span>Username :</span> <span>Mozaza</span></a>
+                    <!-- <br>
+                    <a class="title">publish</a>
+                    <br>
+                    <a class="text"><span>Lastest edit : </span> <span>02 Mar 2024</span></a> -->
+                </div>
+            </div>
+            <div class="flexbox-3">
+                <div class="item-3">
+                    <a class="title">publish</a>
+                    <br>
+                    <a class="text"><span>Lastest edit : </span> <span>02 Mar 2024</span></a>
+                </div>
+            </div>
+            <div class="flexbox-3">
+                <div class="item-3">
+                    <a class="title">ตอนทั้งหมด</a>
+                    <div class="grid">
+                        <p class="text text-3 text-2 content">บทที่</p>
+                        <p class="text text-3 content">ชื่อตอน</p>                    
+                        <img class="watch_icon content" src="Templates/image/eye.png" alt="watched" />
+                        <p class="text text-4 content">แก้ไข</p>
+                        <p class="text text-3 text-2 content">#1</p>
+                        <a href="Templates/payment.html" class="text text-3 content">เมื่อไหร่จะทำ oop เส้ดดดด</a>
+                        <p class="text text-4 content">152</p>
+                        <p class="text text-4 content">12/5/2023</p>
+                        <p class="text text-3 text-2 content">#2</p>
+                        <a href="Templates/payment.html" class="text text-3 content">ขี้เกียจแล้ววววว</a>
+                        <p class="text text-4 content">100</p>
+                        <p class="text text-4 content">14/5/2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bottom_footer">
+            <a class="menu_item" href="https://www.readawrite.com/">ReadAWrite</a>
+        </footer>
+
+    </body>
+
+
+</html>

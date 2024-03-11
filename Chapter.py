@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
 class Chapter:
-    def __init__(self, chapter_number, chapter_name, context, cost, book_name):
+    def __init__(self, book_name, chapter_number, chapter_name, context, cost):
         self.__chapter_id = str(book_name) + "/" + str(chapter_number)
         self.__chapter_number = chapter_number
         self.__name = chapter_name
@@ -10,11 +10,7 @@ class Chapter:
         self.__viewer_count = 0
         self.__comment_list = []
         self.__cost = cost
-
-    @property
-    def name(self):
-        return self.__name
-    
+        
     @property
     def chapter_id(self):
         return self.__chapter_id
@@ -22,6 +18,10 @@ class Chapter:
     @property
     def chapter_number(self):
         return self.__chapter_number
+
+    @property
+    def name(self):
+        return self.__name
     
     @property
     def context(self):
@@ -30,6 +30,10 @@ class Chapter:
     @property
     def publish_date_time(self):
         return self.__publish_date_time
+    
+    @publish_date_time.setter
+    def publish_date_time (self, now):
+        self.__publish_date_time = datetime.now()
     
     @property
     def publish_date_time_str(self):
@@ -55,5 +59,18 @@ class Chapter:
     def update_name(self, new_name):
         self.__name = new_name
 
-    def update_context(self, context):
-        self.__context = context
+    def update_context(self, new_context):
+        self.__context = new_context
+        
+    def show_chapter_info(self):
+        return {"chapter_number" : self.__chapter_number,
+                "name" : self.__name,
+                "price" : self.__cost,
+                "context" : self.__context,
+                "comments" : self.show_comment_list()}
+    
+    def show_comment_list(self):
+        comment_list = []
+        for comment in self.__comment_list:
+            comment_list.append(comment.show_comment())
+        return comment_list
