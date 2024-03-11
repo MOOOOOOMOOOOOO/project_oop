@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Writing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="writing-container">
+        <a href="index.html">กลับสู่หน้าหลัก</a>
+        <h2>นิยาย (บรรยาย)</h2>
+        <hr>
+        <div class="form">
+            <div class="form-group">
+                <label for="writing-title">ชื่อเรื่อง:</label>
+                <input type="text" id="writing-title" name="writing-title" required>
+            </div>
+            <div class="form-group">
+                <label for="upload-cover">อัปโหลดรูปปก:</label>
+                <input type="file" id="upload-cover" name="upload-cover" accept="image/*" style="display:none;">
+                <img class="image" src="uplade_picture.png" onclick="document.getElementById('upload-cover').click();">
+            </div>
+            <div class="form-group">
+                <label for="caption">กรอบ คำโปรย:</label>
+                <textarea id="caption" name="caption" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="pen-name">นามปากกา:</label>
+                <input type="text" id="pen-name" name="pen-name" required>
+            </div>
+            <div class="form-group">
+                <label for="profile-image">รูปโปรไฟล์:</label>
+                <input type="file" id="profile-image" name="profile-image" accept="image/*" required>
+            </div>
+        </div>
+        <hr>
+        <div class="categories">
+            <h3>หมวดหมู่</h3>
+            <div class="main-category">
+                <label for="main-category">หมวดหมู่หลัก:</label>
+                <select id="main-category" name="main-category" required>
+                    <option value="">กรุณาเลือกหมวดหมู่หลัก</option>
+                    <!-- เพิ่ม option ตามความเหมาะสม -->
+                </select>
+            </div>
+            <div class="sub-category">
+                <label for="sub-category">หมวดหมู่รอง:</label>
+                <select id="sub-category" name="sub-category">
+                    <option value="">กรุณาเลือกหมวดหมู่รอง</option>
+                    <!-- เพิ่ม option ตามความเหมาะสม -->
+                </select>
+            </div>
+        </div>
+        <hr>
+        <div class="rating">
+            <h3>ระดับของเนื้อหา (Rating)</h3>
+            <div class="rating-options">
+                <label><input type="radio" name="rating" value="0" required> ทุกเพศสามารถอ่านได้</label>
+                <label><input type="radio" name="rating" value="18"> อ่านได้เฉพาะผู้ใหญ่ (18+)</label>
+            </div>
+        </div>
+        <hr>
+        <div class="tags">
+            <h3>แท็ก (0/18)</h3>
+            <div class="tags-input">
+                <input type="text" id="tag-input" name="tags" placeholder="ใส่แท็กที่นี่" required>
+                <button id="add-tag-button">เพิ่มแท็ก</button>
+            </div>
+           
+html
+Copy code
+            <p>*กรุณางดใส่ tag ที่หยาบคาย ที่ระบุถึงกิจกรรมทางเพศ สื่อถึงอวัยวะเพศ</p>
+            <p>ใส่แท็ก แนวนิยาย</p>
+        </div>
+        <button type="submit">ส่งข้อมูล</button>
+    </div>
+
+    <script>
+        document.getElementById('add-tag-button').addEventListener('click', function() {
+            var tagInput = document.getElementById('tag-input');
+            var tagValue = tagInput.value;
+            var tagsContainer = document.querySelector('.tags-input');
+            var tagElement = document.createElement('div');
+            tagElement.classList.add('tag');
+            tagElement.textContent = tagValue;
+            tagsContainer.appendChild(tagElement);
+            tagInput.value = '';
+        });
+    </script>
+</body>
+</html>
