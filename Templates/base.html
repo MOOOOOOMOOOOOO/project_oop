@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>WriteARead Search Page</title>
+        <title>WriteARead</title>
         <link rel="stylesheet" type="text/css" href="/static/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
         <link rel="stylesheet" type="text/css" href="/static/header_footer.css">
-        <link rel="stylesheet" type="text/css" href="/static/search_page.css">
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <script src="/scripts/search_page.js"></script>
         <script src="/scripts/search_bar.js"></script>
-        <!-- <script src="/scripts/recieving_page.js"></script> -->
-
+        <script src="/scripts/banner_slide.js"></script>
+        <script src="/scripts/toggle_search.js"></script>
+        <script src="/scripts/search_page.js"></script>
+        <!-- <script src="/scripts/sending_page.js"></script> -->
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
     </head>
     <body>
+
         <div class="header_flexbox_menu">
             <div class="header_menu_item">
                 <a class="header_writing_type" href="#">นิยาย</a>
@@ -37,50 +41,9 @@
             </div>
         </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <div class="stage">
-            <div class="cell">
-                <div class="searchbar">
-                    <form id="searchFormPage">
-                        <input type="text" class="btn-extended" id="searchInputPage" name="search_str" placeholder="ค้นหา" required>
-                        <button type="submit" class="btn-search"></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <br>
-        <br>
-        <div class="search_type_div">
-            <a class="search_type search_page_select_default" onclick="select_type(0)">ทั้งหมด</a>
-            <a class="search_type" onclick="select_type(1)">ชื่อเรื่อง</a>
-            <a class="search_type" onclick="select_type(2)">นามปากกา</a>
-            <hr class="lines">
-        </div>
         
-        <br><br>
 
-        <div id="search_result_page" class="result_area">
-
-            <a class="not_found">ไม่พบรายการค้นหา</a>
-            
-            <div class="search_result_container">
-                <div class="image-container">
-                    <img src="../assets/covers_img/temp_cover.jpg" alt="Book Cover">
-                </div>
-                <div class="book_content_container"><br>
-                    <p class="book_title">Shin_chan</p>
-                    <p class="book_description">นามปากกา</p>
-                    <p class="book_description">หมวดหมู่</p>
-                </div>
-            </div>
-        </div>
-
-        <br>
+        
         <footer class="footer">
             <div class="footer_item_container">
                 <a class="footer_home_button" href="https://www.readawrite.com/">ReadAWrite</a>
@@ -101,5 +64,7 @@
                 <p class="footer_menu_text">© 2024 - 2024 Teletubbies Book Center | All Rights Reserved.</p>
             </div>
         </footer>
+        <br>
+    
     </body>
 </html>

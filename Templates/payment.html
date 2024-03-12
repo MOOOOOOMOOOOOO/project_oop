@@ -1,36 +1,120 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Payment</title>
-        <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/header_footer.css">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Payment</title>
     </head>
     <body>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script type="module" src="/scripts/payment_script.js"></script>
         
         <header class="top_header"> 
-            <a class="menu_item brand" href="index.html">WriteARead</a>
-            <a class="menu_item" href="index.html">Home</a>
+            <a class="menu_item brand" href="homepage.html"><img class="brand_img" src="/assets/writearead_img/WriteARead_white.png"></a>
+            <!-- <a class="menu_item" href="homepage.html">Home</a> -->
         </header>
 
-        <!-- <a class="button" href="homepage.html">Home</a> -->
-
-
-        <!-- <div class="buy_coin_title">
-            <h1 class="payment_title">เติมเหรียญ</h1>
-        </div> -->
-
-        <h1 class="payment_title">เติมเหรียญ</h1>
-        <h1 class="payment_title">เลือกช่องทางชำระเงิน</h1>
+        <h1 class="first_payment_title">เติมเหรียญ</h1>
         
-        <a href="#"> <img class="payment_img" src="image/onlinebanking.png"></a>
-        <a href="#"> <img class="payment_img" src="image/debitcard.png"></a>
-        <a href="#"> <img class="payment_img" src="image/truemoneywallet.png"></a>
-        <footer class="bottom_footer">
-            <a class="menu_item" href="https://www.readawrite.com/">ReadAWrite</a>
+        <div>
+            <h1 class="payment_title">เลือกช่องทางชำระเงิน</h1>
+
+            <button class="payment_button" id="online_banking"><img class="payment_img" src="/assets/payment_img/onlinebanking.png"></button>
+            <button class="payment_button" id="debit_card"><img class="payment_img" src="/assets/payment_img/debitcard.png"></button>
+            <button class="payment_button" id="truemoney_wallet"><img class="payment_img" src="/assets/payment_img/truemoneywallet.png"></button>
+
+        </div>
+
+        <div>
+            <h1 class="payment_title">กรุณาเลือกจำนวนเหรียญที่ต้องการ</h1>
+
+            <div class="coin_box" id="coin_box_click_20">
+                <img class="coin_img" src="/assets/payment_img/20coin.png">
+                <p class="coin_amount">20</p>
+                <p class="unit">   เหรียญ</p>
+                <p class="coin_cost">20 บาท</p>
+            </div>
+
+            <div class="coin_box" id="coin_box_click_50">
+                <img class="coin_img" src="/assets/payment_img/50coin.png">
+                <p class="coin_amount">50</p>
+                <p class="unit">   เหรียญ</p>
+                <p class="coin_cost">50 บาท</p>
+            </div>
+
+            <div class="coin_box" id="coin_box_click_100">
+                <img class="coin_img" src="/assets/payment_img/100coin.png">
+                <p class="coin_amount">100</p>
+                <p class="unit">   เหรียญ</p>
+                <p class="coin_cost">100 บาท</p>
+            </div>
+
+            <div class="coin_box" id="coin_box_click_500">
+                <img class="coin_img" src="/assets/payment_img/500coin.png">
+                <p class="coin_amount">500</p>
+                <p class="unit">   เหรียญ</p>
+                <p class="coin_cost">500 บาท</p>
+            </div>
+
+            <div class="coin_box" id="coin_box_click_costom">
+                <p class="costomize_text">กำหนดเอง</p>
+                <input class="costomize_input" type="number" id="golden_coin_amount" name="golden_coin_amount" placeholder="0" min="1" max="1000000">
+                <span class="costomize_unit">เหรียญ</span>
+            </div>
+        </div>
+
+        <div class="promotion_box">
+            <h1 class="payment_title">Promotion Code :</h1>
+            <form>
+                <input class="promotion_code" type="text" id="promotion_code" name="promotion_code" placeholder="Code">
+                <!-- <button></button> -->
+            </form>
+        </div>
+
+        <div class="final_button">
+            <div class="final_box">
+                <p>มูลค่ารวม : </p>
+                <!-- <p>บาท</p> -->
+            </div>
+            <div class="final_box">
+                <p>จำนวนเหรียญทอง : </p>
+                <!-- <p>เหรียญทอง</p> -->
+            </div>
+        </div>
+
+        <div class="final_button">
+            <button class="cancel_button" id="cancel">ยกเลิก</button>
+            <button class="submit_button" onclick="" id="submit">ยืนยัน</button>
+        </div>
+
+    
+        <footer class="footer">
+            <div class="footer_item_container">
+                <a class="footer_home_button" href="https://www.readawrite.com/">ReadAWrite</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="payment.html">Payment</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="MyPage.html">My Page</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="search_page.html">search</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="payment.html">Payment</a>
+            </div>
+            <div class="footer_item_container">
+                <p class="footer_menu_text">© 2024 - 2024 Teletubbies Book Center | All Rights Reserved.</p>
+            </div>
         </footer>
 
     </body>
-
-
 </html>

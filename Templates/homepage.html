@@ -1,20 +1,239 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Homepage</title>
-        <link rel="stylesheet" href="style.css">
+        <title>WriteARead</title>
+        <link rel="stylesheet" type="text/css" href="/static/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/header_footer.css">
+        <link rel="stylesheet" type="text/css" href="/static/homepage.css">
+
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <script src="/scripts/search_bar.js"></script>
+        <script src="/scripts/banner_slide.js"></script>
+        <script src="/scripts/toggle_search.js"></script>
+        <script src="/scripts/search_page.js"></script>
+        <script src="/scripts/homepage.js"></script>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
     </head>
     <body>
-        <p>
-            <a href="payment.html">Payment</a>
-        </p>
+        <section id="searchBar">
+            <div id="dark_overlay" onclick="toggle_search_off()"></div>
+            <div  id="search_header">
+                <div class="search_item">
+                    <form id="searchForm">
+                        <input id="search_str" name="search_str" type="text" class="search_input" placeholder="ค้นหา" required>
+                        <a href="#" onclick="toggle_search_off()"> <img class="close_search" src="../assets/header_img/close_search.png" alt=Original Image"></a>
+                    </form>
+                </div>
+            </div>
+        </section>
 
-        <p>
-            <a href="SearchBar.html">Search Bar</a>
-        </p>
+        <div class="header_flexbox_menu">
+            <div class="header_menu_item">
+                <a class="header_writing_type" href="#">นิยาย</a>
+                <a class="header_writing_type" href="#">แฟนฟิค</a>
+                <a class="header_writing_type" href="#">การ์ตูน</a>
+            </div>
+            <div class="header_menu_item">
+                <a href="homepage.html"><img src="../assets/writearead_img/WriteARead_white.png" class="WriteARead_image"></a>
+            </div>
+            <div class="header_menu_item">
+                <a href="#" onclick="toggle_search()"> <img class="search_icon" src="../assets/header_img/search_button_light.png" alt="Original Image"></a>
+                <a href="#"> <img class="pen_icon" src="../assets/header_img/writing_button_light.png" alt=Original Image"></a>
+                <a href="#" onclick="toggle_user_icon_drop_down()"> <img class="user_icon" src="../assets/header_img/user_button_light.png" alt=Original Image"></a>
+            </div>
+        </div>
+    <br>
+    <section id="home_dd_container">
+        <div>
+            <div class="home_dd_item home_dd_cursor_coin" onclick="go_to_my_page()">
+                <a class="home_dd_display_name">display name</a> <br>
+                <a class="home_dd_user_name">username</a>
+            </div>
+            <hr class="home_dd_lines">
+            <div onclick="go_to_my_buy_coin()" class="home_dd_item space home_dd_cursor_coin">
+                <div>
+                    <a class="้home_dd_menu coin_color ">เมพคอยน์</a>
+                </div>
+                <div>
+                    <a class="home_dd_show_coin">0.00</a>
+                    <a class="home_dd_top_up_btn">+</a>
+                </div>
+            </div>
+            <hr class="home_dd_lines">
+            <div class="home_dd_item">
+                <div onclick="go_to_my_writing()" class="home_dd_menu">My Writing</div>
+                <div onclick="go_to_my_reading()" class="home_dd_menu">My Reading</div>
+                <div onclick="go_to_my_page()" class="home_dd_menu">My Page</div>
+                <div onclick="go_to_my_profile()" class="home_dd_menu">My Profile</div>
+            </div>
+            <hr class="home_dd_lines">
+            <div class="home_dd_item">
+                <div onclick="go_to_my_coin_transac()" class="home_dd_menu">ประวัติการสั่งซื้อ</div>
+                <div onclick="go_to_my_chapter_transac()" class="home_dd_menu">รายการที่ซื้อแล้ว</div>
+            </div>
+            <hr class="home_dd_lines">
+            <div class="home_dd_item">
+                <div onclick="go_to_homepage()" class="home_dd_menu">ออกจากระบบ</div>
+            </div>
+        </div>
+    </section>
 
-        <h1 style="color: rgb(48, 42, 48); font-size: 30px;">WriteARead</h1>
-        <p style="font-size: 20px;">Content 1</p>
+        
+<div class="slideshow-container">
+
+    <div class="mySlides slide-right" style="display: block;">
+        <img src="../assets/banners_img/temp_banner1.png" style="width:100%">
+    </div>
+    
+    <div class="mySlides slide-right">
+        <img src="../assets/banners_img/temp_banner2.png" style="width:100%">
+    </div>
+    
+    <div class="mySlides slide-right">
+        <img src="../assets/banners_img/temp_banner1.png" style="width:100%">
+    </div>
+    <div>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(0)"></span> 
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+    </div>
+</div>    
+    <br>
+        <div class="right">
+            <a href="payment.html"> <img class="top_up" src="../assets/payment_img/buy_coin.png"></a>
+        </div>
+
+        <hr>
+            <a class="tag_title">Love Novel</a><br><br>
+            <a class="subtag_title">นิยายรัก</a>
+
+            <div class="flexbox">
+                <div class="item">
+                        <li onclick="displayBookInfo('Book 1')">Book 1</li>
+                        <a href="../Templates/book_info.html"> <img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+            </div>
+            
+            <div class="flexbox">
+                <div class="item">
+                    <a class="book_title">รักลับๆกับเจ้านายเย็นชา</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ปีที่แล้วเธอกับฉันเราพลัดหลงกัน</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">พี่ครับนมผมไหล ref:เพื่อนในกลุ่ม</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+            </div>
+
+            <br>
+        
+            <a class="subtag_title">นิยายรักจีนโบราณ</a>
+
+            <div class="flexbox">
+                <div class="item">
+                        <li onclick="displayBookInfo('Book 1')">Book 1</li>
+                        <a href="../Templates/book_info.html"> <img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+                <div class="item">
+                    <a><img class="temp_cover_preview" src="../assets/covers_img/temp_cover2.png"></a>
+                </div>
+            </div>
+            
+            <div class="flexbox">
+                <div class="item">
+                    <a class="book_title">รักลับๆกับเจ้านายเย็นชา</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ปีที่แล้วเธอกับฉันเราพลัดหลงกัน</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">พี่ครับนมผมไหล ref:เพื่อนในกลุ่ม</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+                <div class="item">
+                    <a class="book_title">ชื่อหนังสือ</a>
+                </div>
+            </div>
+
+        
+        <hr>
+        <footer class="footer">
+            <div class="footer_item_container">
+                <a class="footer_home_button" href="https://www.readawrite.com/">ReadAWrite</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="payment.html">Payment</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="MyPage.html">My Page</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="search_page.html">search</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="payment.html">Payment</a>
+            </div>
+            <div class="footer_item_container">
+                <p class="footer_menu_text">© 2024 - 2024 Teletubbies Book Center | All Rights Reserved.</p>
+            </div>
+        </footer>
+    
     </body>
-
-
 </html>

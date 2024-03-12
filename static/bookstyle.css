@@ -1,3 +1,9 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "IBM Plex Sans Thai", sans-serif;
+}
+
 .book_flexbox {
     background-color: rgb(9, 7, 7);
     display: flex;
@@ -17,7 +23,7 @@
     margin: 2%;
 }
 
-.grid {
+.chapter_grid {
     /* background-color: antiquewhite; */
     background-color: white;
     display: grid;
@@ -25,7 +31,7 @@
     grid-template-rows: 50px 50px 50px;
 }
 
-.content {
+.chapter_content {
     background-color: white;
     border: 2px rgb(30, 21, 20);
     box-sizing: border-box;
@@ -33,7 +39,7 @@
     margin: 1px;
 }
 
-.info_flexbox {
+.book_info_flexbox {
     background-color: rgb(6, 6, 7);
     display: flex;
     /* box-sizing: border-box; */
@@ -44,7 +50,7 @@
     margin: 2%;
 }
 
-.info_item {
+.book_info_item {
     background-color: rgb(0, 0, 0);
     padding-top: 2%;
     padding-bottom: 4%;
@@ -97,7 +103,7 @@
     color: beige;
 }
 
-.title {
+.info_title {
     /* background-color: aqua; */
     margin-bottom: 20px;
     font-size: 22px;
@@ -105,7 +111,7 @@
     color: rgb(17, 17, 17);
 }
 
-.text {
+.info_text {
     /* background-color: white; */
     padding-left: 10px;
     font-size: 18px;

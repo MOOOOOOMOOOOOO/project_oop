@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BookInfo</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="/static/bookstyle.css">
+        <link rel="stylesheet" type="text/css" href="/static/header_footer.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap"
+            rel="stylesheet">
+
+        <meta charset="UTF-8">
+
+        <script src="/scripts/book_info.js"></script>
+        
+    </head>
+
+    <body>
+        <script>
+            const bookInfo = JSON.parse(sessionStorage.getItem('bookInfo'));
+
+console.log("Retrieved book information:", data);
+
+// Check if the parsed object has the expected properties
+if (bookInfo && bookInfo.genre && bookInfo.name && bookInfo.pseudonym && bookInfo.prologue && bookInfo.writer_name && bookInfo.date_time) {
+    // Display book information in the HTML page
+    // document.getElementById('book').textContent = bookInfo;
+    document.getElementById('genre').textContent = bookInfo.genre;
+    document.getElementById('bookName').textContent = bookInfo.name;
+    document.getElementById('prologueInfo').textContent = bookInfo.prologue;
+    document.getElementById('prologueDisplay').textContent = bookInfo.prologue;
+    document.getElementById('pseudonymInfo').textContent = bookInfo.pseudonym;
+    document.getElementById('pseudonymDisplay').textContent = bookInfo.pseudonym;
+    document.getElementById('writer_username').textContent = bookInfo.writer_name;
+    document.getElementById('date_time').textContent = bookInfo.date_time;
+}
+        </script>
+        <!--หัวกระดาษ-->
+        <div class="header_flexbox_menu">
+            <div class="header_menu_item">
+                <a class="header_writing_type" href="#">นิยาย</a>
+                <a class="header_writing_type" href="#">แฟนฟิค</a>
+                <a class="header_writing_type" href="#">การ์ตูน</a>
+            </div>
+            <div class="header_menu_item">
+                <a href="homepage.html"><img src="/assets/writearead_img/WriteARead_white.png" class="WriteARead_image"></a>
+            </div>
+            <div class="header_menu_item">
+                <a href="#" onclick="toggle_search()"> <img class="search_icon" src="../assets/header_img/search_button_light.png" alt="Original Image"></a>
+                <a href="#"> <img class="pen_icon" src="../assets/header_img/writing_button_light.png" alt=Original Image"></a>
+                <a href="#"> <img class="user_icon" src="../assets/header_img/user_button_light.png" alt=Original Image"></a>
+            </div>
+        </div>
+
+
+        <!--book info-->
+        <div>
+            <div class="book_flexbox">
+                <div class="book_item">
+                    <img class="book_cover" src="../assets/covers_img/shin_chan_cover.jfif" alt="book_cover" />
+                </div>
+                <div class="book_info_flexbox">
+                    <div class="book_info_item">
+                        <div class="text-0">
+                            <a id="genre"></a>
+                        </div>
+                    </div>
+                    <div class="book_info_item">
+                        <div class="book_title">
+                            <a id="bookName"></a>
+                        </div>
+                    </div>
+                    <div class="book_info_item">
+                        <div class="text-0">
+                            <a id="pseudonymInfo"></a>
+                        </div>
+                    </div>
+                    <div class="book_info_item">
+                        <div class="book_title">
+                            <a id="prologueInfo"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flexbox-3">
+                <div class="item-3">
+                    <div class="info_title">prologue</div>
+                    <a id="prologueDisplay"></a>
+                </div>
+            </div>
+            <div class="flexbox-3">
+                <div class="item-3">
+                    <div class="info_title">writer information</div>
+                    <a>Pseudonym : </a>
+                    <a id="pseudonymDisplay"></a>
+                    <br>
+                    <a>Writer : </a>
+                    <a id="writer_username" ></a>
+                </div>
+            </div>
+            <div class="flexbox-3">
+                <div class="item-3">
+                    <div class="info_title">publish</div>
+                    <a>Latest Edit : </a>
+                    <a id="date_time"></a>
+                </div>
+            </div>
+            <div class="flexbox-3">
+                <div class="item-3">
+                    <a class="info_title">ตอนทั้งหมด</a>
+                    <div class="chapter_grid">
+                        <p class="info_text text-3 text-2 chapter_content">บทที่</p>
+                        <p class="info_text text-3 chapter_content">ชื่อตอน</p>
+                        <img class="watch_icon chapter_content" src="../assets/book_img/eye.png" alt="watched" />
+                        <p class="info_text text-4 chapter_content">แก้ไข</p>
+                        <p class="info_text text-3 text-2 chapter_content">#1</p>
+                        <a href="payment.html" class="text text-3 chapter_content">เมื่อไหร่จะทำ oop เส้ดดดด</a>
+                        <p class="info_text text-4 chapter_content">152</p>
+                        <p class="info_text text-4 chapter_content">12/5/2023</p>
+                        <p class="info_text text-3 text-2 chapter_content">#2</p>
+                        <a href="payment.html" class="text text-3 chapter_content">ขี้เกียจแล้ววววว</a>
+                        <p class="info_text text-4 chapter_content">100</p>
+                        <p class="info_text text-4 chapter_content">14/5/2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer_item_container">
+                <a class="footer_home_button" href="https://www.readawrite.com/">ReadAWrite</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="payment.html">Payment</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="MyPage.html">My Page</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="search_page.html">search</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="payment.html">Payment</a>
+            </div>
+            <div class="footer_item_container">
+                <p class="footer_menu_text">© 2024 - 2024 Teletubbies Book Center | All Rights Reserved.</p>
+            </div>
+        </footer>
+
+    </body>
+
+
+</html>

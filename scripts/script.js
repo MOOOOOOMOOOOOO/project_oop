@@ -10,9 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.onload = function() {
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
+                console.log(response);
                 if (response.success) {
                     alert('เข้าสู่ระบบสำเร็จ!');
-                    window.location.href = 'index.html'; 
+                    window.location.href = 'homepage.html'; 
                 } else {
                     alert('เข้าสู่ระบบล้มเหลว! กรุณาตรวจสอบชื่อผู้ใช้และรหัสผ่านของคุณ');
                 }

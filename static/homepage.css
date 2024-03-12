@@ -1,0 +1,79 @@
+
+#home_dd_container{
+    top:65px;
+    right: 165px;
+    position: absolute;
+    width: 350px;
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.197);
+    background-color: white;
+    z-index: 2;
+    display: none;
+}
+
+.home_dd_item{
+    /* background-color: antiquewhite; */
+    margin-left: 17%;
+    margin-right: 5%;
+    font-size: 16px;
+}
+
+.home_dd_display_name{
+    font-size: 20px;
+}
+
+.home_dd_user_name{
+    font-size: 16px;
+    color: var(--gray);
+}
+
+.home_dd_lines{
+    display: block;
+    margin: 0px;
+    height:1px;
+    border: none;
+    background-color:var(--light_gray);
+}
+
+.home_dd_show_coin{
+    color: #FF8204;
+    font-size: 24px;
+}
+
+.coin_color{
+    color: #FF8204;
+    font-weight: 500;
+}
+
+.space{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.home_dd_top_up_btn{
+    font-size: 22px;
+    padding-left:11px;
+    padding-right:11px;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: white;
+    background-color: var(--coin_color);
+    cursor: pointer;
+    
+}
+
+.home_dd_menu{
+    display: block;
+    height: 40px;
+    padding: 5px;
+    cursor: pointer;
+    text-decoration:none;
+    color: black;
+
+    &:hover{
+        background-color: var(--light_gray);
+    }
+}
+
+.home_dd_cursor_coin{
+    cursor: pointer;
+}

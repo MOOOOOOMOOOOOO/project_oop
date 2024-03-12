@@ -46,3 +46,25 @@ function showSlides() {
   // Change slide every 2 seconds
     slideshowTimeout = setTimeout(showSlides, 2000);
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.getElementById("searchForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // Cancel the default action
+      var search_str = document.getElementById('search_str').value;
+      fetch('/search_all/' + search_str, {
+          method: 'GET',
+      })
+      .then(resp => resp.json())
+      .then(data => {
+          $('#search_result').empty();
+          displayResults('Reader', data.Search.Reader);
+          displayResults('Writer', data.Search.Writer);
+          displayResults('Book', data.Search.Book);
+          
+          goToSearchPage(search_str);
+      })
+      .catch(error => {
+          console.error(error);
+      });
+  });
+});

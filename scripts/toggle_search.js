@@ -2,8 +2,6 @@ function toggle_search() {
     const searchBar = document.getElementById("searchBar")
     const searchInput = document.getElementById("search_str")
 
-    console.log(searchBar)
-
     searchBar.style.display = "flex";
     searchInput.focus();
 }

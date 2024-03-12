@@ -1,20 +1,152 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Homepage</title>
-        <link rel="stylesheet" href="style.css">
+        <title>WriteARead</title>
+        <link rel="stylesheet" type="text/css" href="/static/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/header_footer.css">
+        <link rel="stylesheet" type="text/css" href="/static/my_page.css">
+        <link rel="stylesheet" type="text/css" href="/static/search_page.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <script src="/scripts/search_bar.js"></script>
+        <script src="/scripts/banner_slide.js"></script>
+        <script src="/scripts/toggle_search.js"></script>
+        <script src="/scripts/my_page.js"></script>
+        <!-- <script src="/scripts/sending_page.js"></script> -->
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
     </head>
     <body>
-        <p>
-            <a href="Templates/payment.html">Payment</a>
-        </p>
 
-        <p>
-            <a href="SearchBar.html">Search Bar</a>
-        </p>
+        <div class="header_flexbox_menu">
+            <div class="header_menu_item">
+                <a class="header_writing_type" href="#">นิยาย</a>
+                <a class="header_writing_type" href="#">แฟนฟิค</a>
+                <a class="header_writing_type" href="#">การ์ตูน</a>
+            </div>
+            <div class="header_menu_item">
+                <a href="homepage.html"><img src="/assets/writearead_img/WriteARead_white.png" class="WriteARead_image"></a>
+            </div>
+            <div class="header_menu_item">
+                <a href="#" onclick="toggle_search()"> <img class="search_icon" src="../assets/header_img/search_button_light.png" alt="Original Image"></a>
+                <a href="#"> <img class="pen_icon" src="../assets/header_img/writing_button_light.png" alt=Original Image"></a>
+                <a href="#"> <img class="user_icon" src="../assets/header_img/user_button_light.png" alt=Original Image"></a>
+            </div>
+        </div>
+        <br>
 
-        <h1 style="color: rgb(48, 42, 48); font-size: 30px;">WriteARead</h1>
-        <p style="font-size: 20px;">Content 1</p>
+        <br>
+        <div>
+            <div class="cell">
+                <div class="searchbar">
+                    <form id="my_page_search_username">
+                        <input type="text" class="btn-extended" id="search_input_my_page" name="search_str" placeholder="ค้นหา" required>
+                        <button type="submit" class="btn-search"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="info_page">
+            <div class="cover_image">
+                <img src="../assets/background_cover_img/my_page_cover.png" alt="Book Cover">
+            </div>
+            <div class="profile_pic_container">
+                <img class="profile_pic" src="../assets/header_img/user_button_light.png" alt="profile_pic">
+            </div>
+            <div class="info_container">
+                <div class="display_name">
+                    <a id="my_page_display_name">{display_name}</a><br>
+                </div>
+                <br>
+                <div class="stats_container">
+                    <div class="stat_item">
+                    <a id="my_page_writing_count">งานเขียน {writing_count} เรื่อง</a>
+                    </div>
+                    <div class="stat_item">
+                    <a id="my_page_book_on_shelf_count">เพิ่มเข้าชั้น {book_on_shelf_count} ครั้ง</a>
+                    </div>
+                    <div class="stat_item">
+                    <a id="my_page_followers">ติดตาม {followers} คน</a>
+                  </div>
+                </div>
+                <div class="stats_container">
+                  <div class="stat_item">
+                    <a id="my_page_read_count">อ่าน {read_count} ครั้ง</a>
+                  </div>
+                  <div class="stat_item">
+                    <a id="my_page_viewer_count">รี้ด {viewer_count} รีด</a>
+                  </div>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br>
+                <div class="stats_container">
+                  <div class="stat_item">
+                    <a id="my_page_introduction">{introduction}</a>
+                  </div>
+                </div>
+              </div>
+              
+        </div>
+        <br>
+        <div class="my_page_view_types_container">
+            <div class="my_page_view_type_div">
+                <a class="my_page_view_type my_page_select_default" onclick="my_page_select_view_type(0)">งานเขียน</a>
+                <a class="my_page_view_type" onclick="my_page_select_view_type(1)">นามปากกา</a>
+                <a class="my_page_view_type" onclick="my_page_select_view_type(2)">รี้ดถึงไรต์</a>
+                <hr class="lines">
+            </div>
+
+            <div class="my_page_view_container" id="my_page_show_view_type">
+                <a class="my_page_not_found">ไม่พบข้อมูล</a>
+                
+                <div class="my_page_writing_container">
+                    <div class="my_page_image_container">
+                        <img src="../assets/covers_img/temp_cover.jpg" alt="Book Cover">
+                    </div>
+                    <div class="my_page_book_content_container"><br>
+                        <p class="my_page_book_title">Shin_chan</p>
+                        <p class="my_page_book_description">นามปากกา</p>
+                        <p class="my_page_book_description">หมวดหมู่</p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+        
+        
+        <hr>
+        <footer class="footer">
+            <div class="footer_item_container">
+                <a class="footer_home_button" href="https://www.readawrite.com/">ReadAWrite</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="payment.html">Payment</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="MyPage.html">My Page</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="search_page.html">search</a>
+            </div>
+            <div class="footer_item_container">
+                <a class="footer_menu_text" href="payment.html">Payment</a>
+            </div>
+            <div class="footer_item_container">
+                <p class="footer_menu_text">© 2024 - 2024 Teletubbies Book Center | All Rights Reserved.</p>
+            </div>
+        </footer>
+        <br>
+    
     </body>
-
-
 </html>

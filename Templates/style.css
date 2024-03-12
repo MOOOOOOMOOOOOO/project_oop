@@ -1,25 +1,42 @@
-/* General styles */
 html, body {
     margin: 0;
     padding: 0;
     font-family: "IBM Plex Sans Thai", sans-serif;
+    font-style: normal;
+    /*font weight thin 100 extralight 200 light 300 
+      regular 400 medium 500 semibold 600 bold 700*/
 }
 
-/* Header styles */
-.buy_coin_title {
-    background-color: rgb(98, 153, 177);
-    padding: 20px;
-    margin-bottom: 20px;
+.brand_img {
+    width: 200px;
+}
+
+.first_payment_title {
+    color: rgb(30, 26, 29);
+    margin-left: 20px;
+    margin-bottom: 40px;
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 .payment_title {
     color: rgb(30, 26, 29);
     margin-left: 20px;
     font-size: 25px;
+    font-weight: 700;
 }
 
+.payment_context {
+    color: rgb(30, 26, 29);
+    margin-left: 20px;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+
 .top_header {
-    background-color: rgb(59, 163, 182);
+    background-color: rgb(0, 203, 195);
 }
 
 .menu_item {
@@ -27,7 +44,7 @@ html, body {
     color: aliceblue;
     padding: 15px;
     display: inline-block;
-    text-decoration: none;
+    text-decoration:none ;
 }
 
 .brand {
@@ -36,29 +53,199 @@ html, body {
 }
 
 .button {
-    color: antiquewhite;
+    color:antiquewhite;
     background-color: brown;
     padding: 15px;
     text-align: center;
     text-decoration: none;
     margin-bottom: 10px;
+    /* display: block; */
     display: inline-block;
     width: 50px;
 }
 
-.payment_img {
-    background-color: rgba(75, 73, 73, 0.493);
-    padding: 0.7px;
+.payment_box {
+    /* width: 200px; */
+    display: inline-block;
     margin-left: 20px;
     margin-bottom: 10px;
-    display: inline-block;
+    padding: 0.7px;
+    border-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.381);
+}
+
+.payment_img {
     width: 200px;
 }
 
-.bottom_footer {
-    background-color: rgb(75, 81, 82);
+.payment_button {
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+    border-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.381);
+    cursor: pointer;
 }
 
+.payment_button.selected {
+    border: 2px solid rgb(0, 203, 195) !important;
+  }
+
+.coin_box {
+    background-color: rgb(255, 255, 255);
+    font-weight: 400;
+    display: inline-block;
+    width: 350px;
+    height: 70px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+    border-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.381);
+    position: relative; 
+    cursor: pointer;
+}
+
+.coin_box.selected {
+    border-width: 2px !important; /* Make the border 3px for the selected box */
+    border-color: rgb(0, 203, 195) !important; /* Change the border color for the selected box */
+  }
+
+.coin_img {
+    width: 85px;
+    position: absolute;
+    left: 15px; 
+    top: 1px; 
+    z-index: 12;
+}
+
+.coin_amount {
+    color: rgb(234, 187, 0);
+    font-weight: 600;
+    font-size: 18px;
+    position: absolute;
+    left: 110px; 
+    top: 3px; 
+    z-index: 12;
+}
+
+.unit {
+    font-weight: 500;
+    font-size: 18px;
+    position: absolute;
+    left: 150px; 
+    top: 3px; 
+    z-index: 12;
+}
+
+
+.coin_cost {
+    /* font-weight: 400; */
+    font-size: 14px;
+    position: absolute;
+    left: 280px; 
+    top: 10px; 
+    z-index: 12;
+}
+
+.costomize_text {
+    font-size: 18px;
+    font-weight: 700;
+    position: absolute;
+    left: 15px; 
+    top: 3px; 
+    z-index: 12;
+}
+
+.costomize_input {
+    font-weight: 400;
+    display: block;
+    position: absolute;
+    left: 110px; 
+    top: 16px; 
+    z-index: 12;
+    border: 1px solid #d7d6d6; 
+    background: #fff; 
+    padding: 10px 10px 10px 20px; 
+    width: 200px; 
+}
+
+.costomize_unit {
+    position:absolute;
+    display: block; 
+    left: 250px; 
+    top: 21.5px; 
+    z-index: 12;
+}
+
+.promotion_box {
+    border-top: 1px solid rgba(128, 128, 128, 0.381);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.381);
+    margin-bottom: 40px;
+}
+
+.promotion_code {
+    font-weight: 400;
+    display: block;
+    border: 1px solid #d7d6d6; 
+    background: #fff; 
+    padding: 10px 10px 10px 20px; 
+    width: 200px; 
+    margin-left: 20px;
+    margin-bottom: 35px;
+}
+
+.final_button {
+    padding: 40px;
+    margin: auto;
+    text-align: center;
+}
+
+.final_box {
+    display:flexbox;
+}
+
+.cancel_button {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    background-color: #fff;
+    color:gray;
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.692);
+    border-radius: 50px;
+    width: 100px;
+}
+
+.submit_button {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    background-color: rgb(0, 203, 195);
+    color:#fff;
+    padding: 10px;
+    border: 1px solid rgb(0, 203, 195);
+    border-radius: 50px;
+    width: 300px;
+    
+}
+
+.bottom_footer {
+    background-color: rgb(134, 140, 141);
+}
+
+.bottom_context {
+    color: aliceblue;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+
+}
 /* Login styles */
 .login-container {
     width: 300px;
@@ -92,7 +279,7 @@ html, body {
 .login-container input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid white;
+    border: 1px solid grey;
     border-radius: 5px;
 }
 
